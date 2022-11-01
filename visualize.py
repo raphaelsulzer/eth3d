@@ -51,7 +51,8 @@ class Visualizer:
         ## MVS
         plt = vedo.Plotter(axes=0)
 
-        mesh = vedo.Mesh(os.path.join(self.path,self.scene,"vu.ply"),c=[180,180,180])
+        mesh = vedo.Mesh(os.path.join(self.path,self.scene,"openMVS","terrace_cl_05_textured.ply"),c=[180,180,180])
+        mesh.texture(os.path.join(self.path,self.scene,"openMVS","terrace_cl_05_textured.png"))
         mesh=mesh.computeNormals().phong().lighting("default")
         plt+=mesh
 
@@ -180,5 +181,5 @@ if __name__ == "__main__":
     vc=Visualizer()
 
     vc.plotMeshes()
-    vc.plotMVS()
+    # vc.plotMVS()
     # vc.plotLiDAR()
